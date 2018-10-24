@@ -11,7 +11,7 @@ HikariCP:3.2.0<br>
 
 #front-end technology
 ===
-<a href="https://pro.ant.design/index-cn">antd-design-pro</a>:we are still trying<br>
+<a href="https://pro.ant.design/index-cn">ant-design-pro</a>:we are still trying<br>
 
 #generator 
 ===
