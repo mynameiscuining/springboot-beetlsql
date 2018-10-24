@@ -1,5 +1,6 @@
 package cn.njyazheng.demo.config;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.aspectj.lang.JoinPoint;
@@ -7,6 +8,7 @@ import org.aspectj.lang.annotation.AfterReturning;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
 import org.aspectj.lang.annotation.Pointcut;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
@@ -21,6 +23,8 @@ import java.util.Enumeration;
 public class WebLogAspect {
 
     private static Logger logger = LogManager.getLogger(WebLogAspect.class);
+    @Autowired
+    private ObjectMapper objectMapper;
 
     @Pointcut("execution( * cn.njyazheng.demo.controller.*.*(..))")
     public void webLog() {
@@ -57,7 +61,7 @@ public class WebLogAspect {
     public void doAfterReturning(Object ret) throws Throwable {
         logger.info("-------------------------------返回开始-------------------------------------------------");
         // 处理完请求，返回内容
-        logger.info("RESPONSE : " + ret);
+        logger.info("RESPONSE : " + objectMapper.writeValueAsString(ret) );
         logger.info("---------------------------------返回结束-----------------------------------------------");
     }
 }
