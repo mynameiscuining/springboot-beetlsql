@@ -84,6 +84,13 @@
             <version>${spring.version}</version>
         </dependency>
 
+        <!-- https://mvnrepository.com/artifact/org.mitre.dsmiley.httpproxy/smiley-http-proxy-servlet -->
+        <dependency>
+            <groupId>org.mitre.dsmiley.httpproxy</groupId>
+            <artifactId>smiley-http-proxy-servlet</artifactId>
+            <version>1.10</version>
+        </dependency>
+
         <!-- 热加载、热部署 -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
